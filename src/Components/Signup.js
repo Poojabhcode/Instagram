@@ -81,7 +81,7 @@ export default function Signup() {
           })
         })
         setLoading(false);
-        navigate('/');
+        navigate('/Login');
       }
     } catch (err) {
       // console.error("Firebase error:", err);
@@ -92,6 +92,11 @@ export default function Signup() {
         setError("");
       }, 2000);
     }
+  };
+
+  const setFileHandler = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
   };
   
   return (
@@ -110,7 +115,7 @@ export default function Signup() {
         <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin='dense' size='small' value={email} onChange={(e)=>setEmail(e.target.value)} />
         <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin='dense' size='small' value={password} onChange={(e)=>setPassword(e.target.value)}/>
         <TextField id="outlined-basic" label="Full Name" variant="outlined" fullWidth={true} margin='dense' size='small' value={name} onChange={(e)=>setName(e.target.value)} />
-        <Button size="small" color='secondary' fullWidth='true' variant='outlined' margin='dense' startIcon={<CloudUploadIcon/>} component='label'>
+        <Button size="small" color='secondary' fullWidth='true' variant='outlined' margin='dense' startIcon={<CloudUploadIcon/>} component='label' onChange={setFileHandler} >
           Upload Profile Image
           <input type="file" accept='image/' hidden />
           </Button>

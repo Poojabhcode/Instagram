@@ -7,16 +7,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import './Login.css'
 import Insta from '../Assets/Insta.png';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
+import './ForgetPass.css'
 import { AuthContext } from '../Context/AuthContext';
 
-export default function Login() {
-  const store = useContext(AuthContext)
-  console.log(store)
+export default function ForgetPass() {
+  //const store = useContext(AuthContext)
   const useStyles = makeStyles({
        text1:{
         color:'grey',
@@ -33,31 +32,30 @@ export default function Login() {
 
   const classes = useStyles();
   const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
   const [error,setError] = useState('');
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
-  const {login} = useContext(AuthContext);
+  const {forgetpassword} = useContext(AuthContext);
 
-  const handleClick = async () => {
+  const handleSubmit = async () => {
     try{
       setError('');
       setLoading(true)
-      await login(email,password);
+      await forgetpassword(email);
       setLoading(false);
-      navigate('/');
+      navigate('/login');
     }catch{
-      setError("Please enter correct email id or password");
+      setError("Please type correct Email id");
       setTimeout(() => {
         setError("");
       }, 2000);
       setLoading(false);
     }
-  }
+  };
 
   return (
-    <div className='loginWrapper'>
-      <div className='loginCard'>
+    <div className='fpWrapper'>
+      <div className='fpCard'>
       <Card variant='outlined'>
         <div className="insta-logo">
           <img src={Insta} alt="" />
@@ -67,13 +65,9 @@ export default function Login() {
        
         {error!=='' && <Alert severity="error">{error}</Alert>}
         <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin='dense' size='small' value={email} onChange={(e)=> setEmail(e.target.value)}/>
-        <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin='dense' size='small' value={password} onChange={(e)=> setPassword(e.target.value)}/>
-        <Typography className={classes.text2} color = 'primary' variant='subtitle1'>
-        <Link to='/forgetpass' style={{textDecoration:'none'}}>Forget Password ?</Link>
-      </Typography>
       </CardContent>
       <CardActions>
-        <Button color='primary' fullWidth={true} variant='contained' size="small" onClick={handleClick} disabled={loading}>Login</Button>
+        <Button color='primary' fullWidth={true} variant='contained' size="small" onClick={handleSubmit} disabled={loading}>Submit</Button>
       </CardActions>
       
     </Card>
