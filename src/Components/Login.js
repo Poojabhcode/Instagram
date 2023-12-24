@@ -47,7 +47,7 @@ export default function Login() {
       setLoading(false);
       navigate('/');
     }catch{
-      setError("Please enter correct email id or password");
+      setError("Please enter correct Email id and Password or signup");
       setTimeout(() => {
         setError("");
       }, 2000);

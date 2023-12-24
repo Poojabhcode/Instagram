@@ -6,10 +6,12 @@ import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import { AuthProvider } from './Context/AuthContext';
 import PrivateRoute from './Components/PrivateRoute';
 import ForgetPass from './Components/ForgetPass'
+import ErrorBoundary from './Components/ErrorBoundary';
 
 function App() {
   return (
     <Router>
+      <ErrorBoundary>
       <AuthProvider>
       <Routes>
         <Route path='/*' element={<PrivateRoute />} />
@@ -18,6 +20,7 @@ function App() {
           <Route path='/forgetpass' element={<ForgetPass/>}/>
         </Routes>
         </AuthProvider>
+        </ErrorBoundary>
     </Router>
     
       

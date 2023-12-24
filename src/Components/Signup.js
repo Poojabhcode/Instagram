@@ -16,8 +16,6 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload"
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../Context/AuthContext';
 
-
-
 export default function Signup() {
   const useStyles = makeStyles({
        text1:{
@@ -35,7 +33,7 @@ export default function Signup() {
   const [password,setPassword] = useState('');
   const [name,setName] = useState('');
   const [file,setFile] = useState('');
-  const [error,setError] = useState('');
+  const [error,setError] = useState("");
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
   const {signup} = useContext(AuthContext);
@@ -49,7 +47,7 @@ export default function Signup() {
       return;
     }
     try {
-      setError('')
+      setError("")
       setLoading(true)
       let userObj = await signup(email, password);
       let uid = userObj.user.uid;
@@ -111,10 +109,10 @@ export default function Signup() {
         <Typography className={classes.text1} variant='subtitle1'>
           Sign up to see photos and videos from your friends
         </Typography>
-        {error!=='' && <Alert severity="error">{error}</Alert>}
+        {error!=="" && <Alert severity="error">{error}</Alert>}
         <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin='dense' size='small' value={email} onChange={(e)=>setEmail(e.target.value)} />
         <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin='dense' size='small' value={password} onChange={(e)=>setPassword(e.target.value)}/>
-        <TextField id="outlined-basic" label="Full Name" variant="outlined" fullWidth={true} margin='dense' size='small' value={name} onChange={(e)=>setName(e.target.value)} />
+        <TextField id="outlined-basic" label="FullName" variant="outlined" fullWidth={true} margin='dense' size='small' value={name} onChange={(e)=>setName(e.target.value)} />
         <Button size="small" color='secondary' fullWidth='true' variant='outlined' margin='dense' startIcon={<CloudUploadIcon/>} component='label' onChange={setFileHandler} >
           Upload Profile Image
           <input type="file" accept='image/' hidden />
