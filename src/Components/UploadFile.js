@@ -7,7 +7,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 import {Link, useNavigate} from 'react-router-dom';
 import {v4 as uuidv4} from 'uuid';
 
-
 function UploadFile(props) {
     const [error,setError] = useState("");
     const [loading,setLoading] = useState(false);
