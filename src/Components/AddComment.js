@@ -10,6 +10,7 @@ function AddComment({userData,postData}) {
             text:text,
             uProfileImage: userData.profileUrl,
             uName: userData.fullname,
+            
         }
         
         database.comments.add(obj).then((doc)=>{

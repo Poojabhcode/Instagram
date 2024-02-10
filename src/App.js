@@ -14,10 +14,13 @@ function App() {
       <ErrorBoundary>
       <AuthProvider>
       <Routes>
-        <Route path='/*' element={<PrivateRoute />} />
+     
+       
           <Route path='/signup' element={<Signup />}/>
           <Route path='/login' element={<Login />} />
           <Route path='/forgetpass' element={<ForgetPass/>}/>
+          <Route path='/*' element={<PrivateRoute />} />
+         
         </Routes>
         </AuthProvider>
         </ErrorBoundary>

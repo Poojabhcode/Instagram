@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { database } from '../firebase';
 import CircularProgress from '@mui/material/CircularProgress';
-import Avatar from '@mui/material/Avatar';
 import Video from './Video';
 import './Posts.css'
+import Avatar from '@mui/material/Avatar';
 import Like from './Like';
 import Like2 from './Like2';
 import AddComment from './AddComment';
