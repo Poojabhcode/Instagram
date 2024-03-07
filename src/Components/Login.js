@@ -6,9 +6,16 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import Typography from '@mui/material/Typography';
 import './Login.css'
 import Insta from '../Assets/Insta.png';
+import bg from '../Assets/home-phones.png';
+import img1 from '../Assets/screenshot1.png';
+import img2 from '../Assets/screenshot2.png';
+import img3 from '../Assets/screenshot3.png';
+import img4 from '../Assets/screenshot4.png';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
@@ -57,6 +64,28 @@ export default function Login() {
 
   return (
     <div className='loginWrapper'>
+      <div className="imgcar" style={{backgroundImage:'url('+bg+')',backgroundSize:'cover' }}>
+        <div className="car">
+        <CarouselProvider
+        visibleSlides={1}
+        totalSlides={4}
+        naturalSlideWidth={208}
+        naturalSlideHeight={433}
+        hasMasterSpinner
+        isPlaying={true}
+        infinite={true}
+        dragEnabled={false}
+        touchEnabled={false}
+      >
+        <Slider>
+          <Slide index={0}><Image src={img1}/></Slide>
+          <Slide index={1}><Image src={img2}/></Slide>
+          <Slide index={2}><Image src={img3}/></Slide>
+          <Slide index={3}><Image src={img4}/></Slide>
+        </Slider>
+      </CarouselProvider>
+        </div>
+      </div>
       <div className='loginCard'>
       <Card variant='outlined'>
         <div className="insta-logo">

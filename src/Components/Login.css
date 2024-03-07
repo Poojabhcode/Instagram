@@ -24,4 +24,15 @@
     margin-top: 8vh;
     height:590px;
     width:441px;
+    position: relative;
 }
+
+.car{
+    height: 423px;
+    width:241px;
+    position: absolute;
+    left:143px;
+    top:20px;
+}
+
+/*W 238 */
